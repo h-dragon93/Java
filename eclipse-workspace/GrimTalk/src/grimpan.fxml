@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" type="VBox" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<MenuBar maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="28.0" prefWidth="400.0" style="-fx-background-color: #f8e0e6;">
+			<menus>
+				<Menu mnemonicParsing="false" text="File">
+					<items>
+						<MenuItem fx:id="menuNew" mnemonicParsing="false" onAction="#handleMenuNew" text="New" />
+						<MenuItem fx:id="menuOpen" mnemonicParsing="false" onAction="#handleMenuOpen" text="Open" />
+						<MenuItem fx:id="menuSave" mnemonicParsing="false" onAction="#handleMenuSave" text="Save" />
+						<MenuItem fx:id="menuSaveAs" mnemonicParsing="false" onAction="#handleMenusaveAs" text="Save As ..." />
+						<SeparatorMenuItem mnemonicParsing="false" />
+						<MenuItem fx:id="menuExit" mnemonicParsing="false" onAction="#handleMenuExit" text="Exit" />
+					</items>
+				</Menu>
+				<fx:define>
+					<ToggleGroup fx:id="toggleGroup1" />
+				</fx:define>
+				<Menu mnemonicParsing="false" text="Shape">
+					<items>
+						<RadioMenuItem fx:id="menuLine" mnemonicParsing="false" onAction="#handleMenuLine" text="Line">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="toggleGroup1" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+						<RadioMenuItem fx:id="menuPencil" mnemonicParsing="false" onAction="#handleMenuPencil" selected="true" text="Pencil" toggleGroup="$toggleGroup1" />
+						<RadioMenuItem fx:id="menuPolygon" mnemonicParsing="false" onAction="#handleMenuPolygon" text="Polygon" toggleGroup="$toggleGroup1" />
+						<RadioMenuItem fx:id="menuRegular" mnemonicParsing="false" onAction="#handleMenuRegular" text="Regular" toggleGroup="$toggleGroup1" />
+						<RadioMenuItem fx:id="menuOval" mnemonicParsing="false" onAction="#handleMenuOval" text="Oval" toggleGroup="$toggleGroup1" />
+						<RadioMenuItem fx:id="menuStar" mnemonicParsing="false" onAction="#handleMenuStar" text="Star" toggleGroup="$toggleGroup1" />
+						<RadioMenuItem fx:id="menuHeart" mnemonicParsing="false" onAction="#handleMenuHeart" text="Heart" toggleGroup="$toggleGroup1" />
+						<RadioMenuItem fx:id="menuThunder" mnemonicParsing="false" onAction="#handleMenuThunder" text="Thunder" toggleGroup="$toggleGroup1" />
+						<RadioMenuItem fx:id="menuSpiral" mnemonicParsing="false" onAction="#handleMenuSpiral" text="Spiral" toggleGroup="$toggleGroup1" />						
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Edit">
+					<items>
+						<MenuItem fx:id="menuMove" mnemonicParsing="false" onAction="#handleMenuMove" text="Move" />
+						<MenuItem fx:id="menuDelete" mnemonicParsing="false" onAction="#handleMenuDelete" text="Delete" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Setting">
+					<items>
+						<MenuItem fx:id="menuStrokeWidth" mnemonicParsing="false" onAction="#handleMenuStrokeWidth" text="Stroke Width" />
+						<MenuItem fx:id="menuStrokeColor" mnemonicParsing="false" onAction="#handleMenuStrokeColor" text="Stroke Color" />
+						<MenuItem fx:id="menuFillColor" mnemonicParsing="false" onAction="#handleMenuFillColor" text="Fill Color" />
+						<CheckMenuItem fx:id="menuCheckFill" mnemonicParsing="false" onAction="#handleMenuCheckFill" text="Fill" />
+						<CheckMenuItem fx:id="menuCheckStroke" mnemonicParsing="false" onAction="#handleMenuCheckStroke" selected="true" text="Stroke" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Effect">
+					<items>
+						<MenuItem fx:id="menuShadow" mnemonicParsing="false" onAction="#handleMenuShadow" text="Shadow" />
+						<MenuItem fx:id="menuRotate" mnemonicParsing="false" onAction="#handleMenuRotate" text="Rotate" />				
+					</items>
+				</Menu>				
+				<Menu mnemonicParsing="false" text="Help">
+					<items>
+						<MenuItem fx:id="menuAbout" mnemonicParsing="false" onAction="#handleMenuAbout" text="About" />
+					</items>
+				</Menu>
+			</menus>
+		</MenuBar>
+      <Pane fx:id="contentPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="570.0" prefWidth="400.0">
+         <children>
+            <Pane fx:id="contentPaneMiddle" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="512.0" prefWidth="400.0" style="-fx-background-color: #a9e2f3;">
+               <children>
+                  <Label layoutX="329.0" layoutY="469.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="20.0" prefWidth="57.0" text="도화지" textFill="#4ca0cd">
+                     <font>
+                        <Font name="휴먼중간팸체" size="29.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+            <Pane layoutY="544.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="400.0">
+               <children>
+                  <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="400.0" style="-fx-background-color: #d8d8d8;">
+                     <left>
+                        <Label fx:id="lblMessage" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font name="Verdana" size="13.0" />
+                           </font></Label>
+                     </left>
+                  </BorderPane>
+               </children>
+            </Pane>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="400.0">
+               <children>
+                  <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="400.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="btnConnection" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#handleBtnConnection" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #f7d358;" text="Connect" textFill="#cd4545">
+                           <font>
+                              <Font name="Verdana Bold" size="12.0" />
+                           </font></Button>
+                        <Button fx:id="btnSend" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#handleBtnSend" prefHeight="30.0" prefWidth="427.0" style="-fx-background-color: #f7d358;" text="Send" textFill="#cd4545" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Verdana Bold" size="12.0" />
+                           </font></Button>
+                     </children>
+                  </GridPane>
+               </children>
+            </Pane>
+         </children></Pane>
+	</children>
+</fx:root>
